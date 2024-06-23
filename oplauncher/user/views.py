@@ -21,3 +21,6 @@ def user_login(request):
     return render(request, 'user/login.html',{
         'form' : form
     })
+
+def index(request):
+    return render(request, 'user/index.html')

@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from .models import Quals
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def index(request):
     quals = Quals.objects.all()
     return render(request, 'launcher/index.html', {
