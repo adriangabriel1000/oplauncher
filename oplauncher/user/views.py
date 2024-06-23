@@ -14,7 +14,7 @@ def user_login(request):
                 login(request, user)
                 return HttpResponse("User authenticated and logged in")
             else:
-                return HttpResponse("Invalid Credentails")
+                return HttpResponse("Invalid Credentials")
     else:
         form = LoginForm()
 
@@ -24,7 +24,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return HttpResponse("Logout successfull")
+    return HttpResponse("Logout successful")
 
 
 
