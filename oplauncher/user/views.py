@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm
 from django.http import HttpResponse
 
@@ -21,6 +21,12 @@ def user_login(request):
     return render(request, 'user/login.html',{
         'form' : form
     })
+
+def user_logout(request):
+    logout(request)
+    return HttpResponse("Logout successfull")
+
+
 
 def index(request):
     return render(request, 'user/index.html')
