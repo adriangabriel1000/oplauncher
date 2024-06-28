@@ -1,5 +1,2 @@
+{% extends 'launcher/base.html' %}
 <h1>You have been logged out</h1>
-<form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">logout</button>
-</form>

@@ -9,5 +9,4 @@ def index(request):
     quals = Quals.objects.all()
     return render(request, 'launcher/index.html', {
         'quals': quals,
-        
     })

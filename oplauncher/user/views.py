@@ -12,7 +12,8 @@ def user_login(request):
             user = authenticate(request, username=data['username'], password=data['password'])
             if user is not None:
                 login(request, user)
-                return HttpResponse("User authenticated and logged in")
+                return render(request, 'user/login.html')
+                #return HttpResponse("User authenticated and logged in")
             else:
                 return HttpResponse("Invalid Credentials")
     else:
@@ -24,7 +25,8 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return HttpResponse("Logout successful")
+    return render(request, 'user/logout.html')
+    #return HttpResponse("Logout successful")
 
 
 
