@@ -1,7 +1,12 @@
 {% extends 'launcher/base.html' %}
 
 
-<h1>You are logged in</h1>
+{% block body %}
+    {% if request.user.is_authenticated %}
+        <h1>You are logged in</h1>
+    {% endif %}
+{% endblock %}
+
 
 <!--
 <form method="POST">
