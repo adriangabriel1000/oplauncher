@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def index(request):
     quals = Quals.objects.all()
+    
     return render(request, 'launcher/index.html', {
         'quals': quals,
     })
