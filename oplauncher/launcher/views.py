@@ -11,3 +11,7 @@ def index(request):
     return render(request, 'launcher/index.html', {
         'quals': quals,
     })
+
+def accSettigns(request):
+    return render(request, 'user/account_settings.html')
+    

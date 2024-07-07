@@ -30,7 +30,8 @@ def user_logout(request):
     #return render(request, 'user/logout.html')
     #return HttpResponse("Logout successful")
 
-
+def accSettings(request):
+    return render(request, 'user/account_settings.html')
 
 def index(request):
     return render(request, 'user/index.html')
