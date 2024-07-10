@@ -26,6 +26,7 @@
                             <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                             <a class="nav-link" href="#">Features</a>
                             <a class="nav-link" href="{% url 'accSettings' %}">Account Settings</a>
+                            <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                             <a class="nav-link disabled">Disabled</a>
                         </div>
                     </div>
@@ -59,6 +60,7 @@
                             <input type="password" class="form-control" name="password">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <li><a class="link-opacity-50-hover link-underline link-underline-opacity-0" href={% url 'register' %}>Register New User</a></li>
                     </form>
                 </div>
             </div>
