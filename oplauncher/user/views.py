@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm, UserRegistraionForm
+from .forms import LoginForm, UserRegistrationForm
 from django.http import HttpResponse
 
 # Create your views here.
@@ -35,15 +35,15 @@ def accSettings(request):
 
 def register(request):
     if request.method == 'POST':
-        user_form = UserRegistraionForm(request.POST)
+        user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data["password"])
             new_user.save()
-            return render(request, '')
+            return render(request, 'user/register_done.html')
     else:
         user_form = UserRegistrationForm()
-    return render(request, '', {
+    return render(request, 'user/register.html', {
         'user_form': user_form
     })
 
