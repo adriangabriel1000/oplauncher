@@ -2,8 +2,27 @@
 
 
 {% block body %}
-    {% if request.user.is_authenticated %}
-        <h1>You are logged in</h1>
-    {% endif %}
+    <div class="d-flex align-items-center ms-3">
+        <div class="card w-35 mt-3">
+            <div class="card-header text-center">LOGIN</div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary float-start">Submit</button>
+
+                    <a class="link-opacity-50-hover link-underline link-underline-opacity-0 float-end text-success" href={% url 'register' %}>Register</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 

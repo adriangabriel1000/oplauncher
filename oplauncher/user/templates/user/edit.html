@@ -4,10 +4,61 @@
 {% block body %}
     <form method="POST">
         {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <input type="submit">
-        
-    </form>
+        <div class="d-flex align-items-center ms-3">
+            <div class="card w-50 mt-3">
+                <div class="card-header text-center">PROFILE</div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="first_name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="last_name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nickname</label>
+                            <input type="text" class="form-control" name="nickname">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" name="address">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">ID Number</label>
+                            <input type="text" class="form-control" name="id_number">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Unique Number</label>
+                            <input type="text" class="form-control" name="un_number">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Telephone Number</label>
+                            <input type="text" class="form-control" name="tel_number">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Alternate Number</label>
+                            <input type="text" class="form-control" name="alt_number">
+                        </div>
 
+                        <div class="mb-3">
+                            <label class="form-label">Telephone Number</label>
+                            <input type="text" class="form-control" name="tel_number">
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a class="link-opacity-50-hover link-underline link-underline-opacity-0 float-end link-danger" href={% url 'accSettings' %}>Cancel</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </form>
 {% endblock %}
