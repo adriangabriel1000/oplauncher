@@ -43,11 +43,14 @@ def register(request):
             new_user.set_password(user_form.cleaned_data["password"])
             new_user.save()
             Profile.objects.create(user=new_user)
-            return render(request, 'user/register_done.html')
+            #message = "User registered successfully"
+            return redirect('/user/login/')
+            #return render(request, 'user/register_done.html')
     else:
         user_form = UserRegistrationForm()
+
     return render(request, 'user/register.html', {
-        'user_form': user_form
+        'user_form': user_form,
     })
 
 @login_required
@@ -58,12 +61,15 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            message = "Profile saved successfully!"
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
+        message =""
     return render(request, 'user/edit.html', {
         'user_form': user_form,
         'profile_form': profile_form,
+        'message': message,
     })
 
 def index(request):

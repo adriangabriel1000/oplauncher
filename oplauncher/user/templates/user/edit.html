@@ -12,50 +12,42 @@
                         {% csrf_token %}
                         <div class="mb-3">
                             <label class="form-label">First Name</label>
-                            <input type="text" class="form-control" name="first_name">
+                            <input type="text" class="form-control" name="first_name" id="id_first_name" value="{{ user_form.first_name.value }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Last Name</label>
-                            <input type="text" class="form-control" name="last_name">
+                            <input type="text" class="form-control" name="last_name" id="id_last_name" value="{{ user_form.last_name.value }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="email" class="form-control" name="email" id="id_email" value="{{ user_form.email.value }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nickname</label>
-                            <input type="text" class="form-control" name="nickname">
+                            <input type="text" class="form-control" name="nickname" id="id_nickname" value="{{ profile_form.nickname.value }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Address</label>
-                            <input type="text" class="form-control" name="address">
+                            <input type="text" class="form-control" name="address" id="id_address" value="{{ profile_form.address.value }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">ID Number</label>
-                            <input type="text" class="form-control" name="id_number">
+                            <input type="text" class="form-control" name="id_number" id="id_id_number" value="{{ profile_form.id_number.value }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Unique Number</label>
-                            <input type="text" class="form-control" name="un_number">
+                            <input type="text" class="form-control" name="un_number" id="id_un_number" value="{{ profile_form.un_number.value }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Telephone Number</label>
-                            <input type="text" class="form-control" name="tel_number">
+                            <input type="text" class="form-control" name="tel_number" id="id_tel_number" value="{{ profile_form.tel_number.value }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Alternate Number</label>
-                            <input type="text" class="form-control" name="alt_number">
+                            <input type="text" class="form-control" name="alt_number" id="id_alt_number" value="{{ profile_form.alt_number.value }}">
                         </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Telephone Number</label>
-                            <input type="text" class="form-control" name="tel_number">
-                        </div>
-
-
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a class="link-opacity-50-hover link-underline link-underline-opacity-0 float-end link-danger" href={% url 'accSettings' %}>Cancel</a>
-
+                        <a class="link-opacity-50-hover link-underline link-underline-opacity-0 float-end link-danger mt-2" href={% url 'accSettings' %}>Cancel</a>
                     </form>
                 </div>
             </div>
