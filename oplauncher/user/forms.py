@@ -11,7 +11,7 @@ class UserEditForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ("nickname", "address", "id_number", "un_number", "tel_number", "alt_number", "photo",)
+        fields = ("nickname", "address", "id_number", "un_number", "tel_number", "alt_number", "photo", "avatar",)
 
 
 class LoginForm(forms.Form):

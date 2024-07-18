@@ -34,7 +34,9 @@
                     </div>
                         <form class="d-flex" method="post" action="{% url 'logout' %}">
                             {% csrf_token %}
-                            <img src="/media/users/2024/07/14/ManAvatar.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 mt-1">
+
+                                <img src="/media/profile_pics/{{ request.user.username }}.png" onerror="this.src='/media/profile_pics/Default.png'"  alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 mt-1">
+
                             <a class="link-secondary link-underline link-underline-opacity-0 mt-2 me-3">Logged in as {{ request.user.username }} </a>
                             <button class="btn btn-outline-success" type="submit">Logout</button>
                         </form>
