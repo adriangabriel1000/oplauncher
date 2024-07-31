@@ -14,7 +14,7 @@
     <body>
 
         {% if request.user.is_authenticated %}
-            <nav class="navbar navbar-expand-lg sticky-top m-3" style="background-color: #e3f2fd;"">
+            <nav class="navbar navbar-expand-lg sticky-top m-2" style="background-color: #e3f2fd;"">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
                         <img src="{% static 'launcher/images/rocket.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">OpLauncher
@@ -27,19 +27,32 @@
                         <div class="navbar-nav">
                             <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                             <a class="nav-link" href="#">Features</a>
-                            <a class="nav-link" href="{% url 'accSettings' %}">Account Settings</a>
                             <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                             <a class="nav-link disabled">Disabled</a>
                         </div>
                     </div>
-                        <form class="d-flex" method="post" action="{% url 'logout' %}">
-                            {% csrf_token %}
 
-                                <img src="/media/profile_pics/{{ request.user.username }}.png" onerror="this.src='/media/profile_pics/Default.png'"  alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 mt-1">
+                    <form class="d-flex me-3" method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <ul class="nav-item dropdown mt-2">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/media/profile_pics/{{ request.user.username }}.png" onerror="this.src='/media/profile_pics/Default.png'"  alt="Logo" width="40" height="40" style="border-radius: 50%;">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item link-secondary link-underline link-underline-opacity-0">Welcome {{ request.user.username }} </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'accSettings' %}">User Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><button class="btn btn-outline-success ms-2" type="submit">Logout</button></li>
+                            </ul>
+                        </ul>
+                        <!--
+                        <img src="/media/profile_pics/{{ request.user.username }}.png" onerror="this.src='/media/profile_pics/Default.png'"  alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 mt-1" style="border-radius: 50%;">
 
-                            <a class="link-secondary link-underline link-underline-opacity-0 mt-2 me-3">Logged in as {{ request.user.username }} </a>
-                            <button class="btn btn-outline-success" type="submit">Logout</button>
-                        </form>
+                        <a class="link-secondary link-underline link-underline-opacity-0 mt-2 me-3">Welcome {{ request.user.username }} </a>
+                        <button class="btn btn-outline-success" type="submit">Logout</button> -->
+                    </form>
                 </div>
             </nav>
             {% if message %}
