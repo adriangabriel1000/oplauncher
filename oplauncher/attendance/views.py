@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .forms import AttendanceForm
+from .models import Attendance
 from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 @login_required
@@ -15,4 +17,13 @@ def attendance_create(request):
         form = AttendanceForm(data=request.GET)
     return render(request, 'attendance/create.html', {
         'form': form,
+    })
+
+
+@login_required
+def attendance(request):
+    attendance = Attendance.objects.all()
+    return render(request, 'attendance/attendance.html', {
+        'attendance': attendance,
+
     })
