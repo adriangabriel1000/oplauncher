@@ -1,4 +1,5 @@
 {% extends 'launcher/base.html' %}
+{% load crispy_forms_tags  %} 
 
 {% block body %}
 <div class="d-flex align-items-center ms-3 me-3">
@@ -18,8 +19,9 @@
                 <div class="mb-3">
                     <label class="form-label">Start Time: </label>
                     <input type="text" class="form-control" name="startTime" required aria-invalid="true" id="id_startTime">
+                    <input type="datetime-local">
                 </div>
-                {{ form.as_p }}
+                {{ form|crispy }}
                 <button type="submit">Submit</button>
             </form>
         </div>
