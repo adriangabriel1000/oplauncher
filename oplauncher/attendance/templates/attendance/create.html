@@ -1,5 +1,5 @@
 {% extends 'launcher/base.html' %}
-{% load crispy_forms_tags  %} 
+{% load crispy_forms_tags  %}
 
 {% block body %}
 <div class="d-flex align-items-center ms-3 me-3">
@@ -9,11 +9,11 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label class="form-label">User:</label>
-                    <select name="user" required aria-invalid="true" id="id_user">
-                        <option value selected>----------</option>
-                        <option value="1">adrian</option>
-                        <option value="2">ron</option>
+                    <label class="form-label requiredField">User:<span class="asteriskField">*</span></label>
+                    <select name="user" class="select form-select is-invalid" required aria-invalid="true" id="id_user">
+                        {% for val, user in form.fields.user.choices %}
+                            <option value="{{ val }}">{{user}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="mb-3">
@@ -21,6 +21,7 @@
                     <input type="text" class="form-control" name="startTime" required aria-invalid="true" id="id_startTime">
                     <input type="datetime-local">
                 </div>
+                <label class="form-label requiredField" for="id_startTime">Start Time<span class="asteriskField">*</span> </label>
                 {{ form|crispy }}
                 <button type="submit">Submit</button>
             </form>
@@ -31,9 +32,6 @@
 {% endblock %}
 
 <!--
-
-
-
     <div class="d-flex align-items-center ms-3 me-3">
         <div class="card w-100 mt-3 mb-3">
             <h5 class="card-header text-center">PROFILE</h5>
