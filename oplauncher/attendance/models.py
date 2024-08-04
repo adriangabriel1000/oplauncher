@@ -7,7 +7,7 @@ class Attendance(models.Model):
     startTime = models.DateTimeField()
     endTime = models.DateTimeField()
     position = models.CharField(max_length=200)
-    location = models.CharField(max_length=200)
+    location = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
         return self.position
