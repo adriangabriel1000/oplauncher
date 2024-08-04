@@ -20,8 +20,5 @@ class AttendanceForm(forms.ModelForm):
         widgets={
             'startTime': forms.DateInput(attrs={'type': 'datetime-local'}),
             'endTime': forms.DateInput(attrs={'type': 'datetime-local'}),
-            
-
-            
         }
 
