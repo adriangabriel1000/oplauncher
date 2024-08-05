@@ -2,18 +2,7 @@ from .models import Attendance
 from django import forms
 
 
-class AttendanceForm(forms.ModelForm):
-    
-#    pos = (
-#        ("XM", "XM"),
-#        ("XA", "XA"),
-#        ("XN", "XN"),
-#        ("XD", "XD"),
-#        ("XZ", "XZ"),
-#    )
-    
-    #position = forms.ChoiceField(choices=pos, widget=forms.RadioSelect())
-    
+class AttendanceForm(forms.ModelForm):    
     class Meta:
         pos = (
             ("XM", "XM"),
@@ -29,4 +18,5 @@ class AttendanceForm(forms.ModelForm):
             'endTime': forms.DateInput(attrs={'type': 'datetime-local'}),
             'position': forms.Select(choices=pos, attrs={'class': 'form-select'}),
         }
+
 

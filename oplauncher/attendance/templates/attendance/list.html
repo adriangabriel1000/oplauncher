@@ -1,8 +1,40 @@
 {% extends 'launcher/base.html' %}
 
+
 {% block body %}
-    {% for li in list %}
-        {{ li.user }} {{ li.startTime }} {{ li.endTime }} {{ li.position }} {{ li.location }}<br>
-    {% endfor %}
-    Printed
+    <div class="container m-3">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5><div class="card-title text-center h4">Full Listing</div></h5>
+                        <div class="card-text">
+                        <table class="table table-hover table-striped">
+                            <thead class="h6 text-center">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Start Time</th>
+                                <th scope="col">End Time</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Location</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for li in list %}
+                                    <tr class="fw-normal text-center">
+                                        <th scope="row" href="{% url 'attendance' %}">{{ li.user.first_name }} {{ li.user.last_name }}</th>
+                                        <td>{{ li.startTime }}</td>
+                                        <td>{{ li.endTime }}</td>
+                                        <td>{{ li.position }}</td>
+                                        <td>{{ li.location }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
