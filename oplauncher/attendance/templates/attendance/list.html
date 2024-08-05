@@ -1,0 +1,8 @@
+{% extends 'launcher/base.html' %}
+
+{% block body %}
+    {% for li in list %}
+        {{ li.user }} {{ li.startTime }} {{ li.endTime }} {{ li.position }} {{ li.location }}<br>
+    {% endfor %}
+    Printed
+{% endblock %}

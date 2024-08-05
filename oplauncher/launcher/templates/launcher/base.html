@@ -14,7 +14,7 @@
     <body>
 
         {% if request.user.is_authenticated %}
-            <nav class="navbar navbar-expand-lg sticky-top m-2" style="background-color: #e3f2fd;"">
+            <nav class="navbar navbar-expand-lg sticky-top m-2" style="background-color: #e3f2fd;">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
                         <img src="{% static 'launcher/images/rocket.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">OpLauncher
@@ -38,6 +38,7 @@
                                 <ul class="dropdown-menu">
                                   <li><a class="dropdown-item" href="{% url 'attendance' %}">Current Attendance</a></li>
                                   <li><a class="dropdown-item" href="{% url 'create' %}">Create Attendance</a></li>
+                                  <li><a class="dropdown-item" href="{% url 'list' %}">Full List</a></li>
                                   <li><a class="dropdown-item" href="#">Edit Today's Attendance</a></li>
                                 </ul>
                               </li>
@@ -60,11 +61,6 @@
                                 <li><button class="btn btn-outline-success ms-2" type="submit">Logout</button></li>
                             </ul>
                         </ul>
-                        <!--
-                        <img src="/media/profile_pics/{{ request.user.username }}.png" onerror="this.src='/media/profile_pics/Default.png'"  alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 mt-1" style="border-radius: 50%;">
-
-                        <a class="link-secondary link-underline link-underline-opacity-0 mt-2 me-3">Welcome {{ request.user.username }} </a>
-                        <button class="btn btn-outline-success" type="submit">Logout</button> -->
                     </form>
                 </div>
             </nav>
