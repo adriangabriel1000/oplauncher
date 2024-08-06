@@ -27,7 +27,8 @@ SECRET_KEY = "django-insecure-e!sh*h%liadrrn)$*@jz(t^2!e%2t1=9j5g5ed#u_$-$s+p#&!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-#ALLOWED_HOSTS = ['51.20.243.5', 'localhost']
+#PythonAnywhere
+#ALLOWED_HOSTS = ['adrian1000.pythonanywhere.com']
 
 
 # Application definition
@@ -123,6 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+#PythonAnywhere
+#STATIC_URL =  "static/"
+#STATIC_ROOT = "/home/adrian1000/oplauncher/static"
+#Static Files Section in 'Web'
+#URL /static/ , Directory /home/adrian1000/oplauncher/launcher/static
+#Run python3 manage.py collectstatic
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -134,6 +141,11 @@ LOGOUT_URL = 'logout'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+#PythonAnywhere
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#Static Files Section in 'Web'
+#URL /media/ , Directory /home/adrian1000/oplauncher/media
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
