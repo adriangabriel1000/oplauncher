@@ -131,9 +131,6 @@ STATIC_URL = "static/"
 #URL /static/ , Directory /home/adrian1000/oplauncher/launcher/static
 #Run python3 manage.py collectstatic
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = 'login'
