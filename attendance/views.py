@@ -42,6 +42,10 @@ def attendance(request):
     if datetime(year, month, day, hour, minute) > datetime(year, month, day , 23, 0) and datetime(year, month, day+1, hour, minute) < datetime(year, month, day+1, 7, 0):
         stTme = datetime(year, month, day , 23, 0)
         enTme = datetime(year, month, day+1, 7, 0)
+        
+    if datetime(year, month, day, hour, minute) > datetime(year, month, day , 0, 0) and datetime(year, month, day, hour, minute) < datetime(year, month, day, 7, 0):
+        stTme = datetime(year, month, day , 23, 0)
+        enTme = datetime(year, month, day+1, 7, 0)
     
     attendance = Attendance.objects.filter(startTime__gte=stTme, endTime__lte=enTme)
     print(year, month, day, hour, minute)
