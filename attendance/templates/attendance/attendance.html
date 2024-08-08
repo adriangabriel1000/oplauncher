@@ -1,40 +1,33 @@
 {% extends 'launcher/base.html' %}
 
 {% block body %}
-    <div class="container m-3">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h5><div class="card-title text-center h4">Attendance</div></h5>
-                        <div class="card-text">
-                        <table class="table table-hover table-striped">
-                            <thead class="h6 text-center">
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Start Time</th>
-                                <th scope="col">End Time</th>
-                                <th scope="col">Position</th>
-                                <th scope="col">Location</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                {% for attendant in attendance %}
-                                    <tr class="fw-normal text-center">
-                                        <th scope="row">{{ attendant.user.first_name }} {{ attendant.user.last_name }}</th>
-                                        <td>{{ attendant.startTime }}</td>
-                                        <td>{{ attendant.endTime }}</td>
-                                        <td>{{ attendant.position }}</td>
-                                        <td>{{ attendant.location }}</td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
-                </div>
+    <div class="card shadow rounded m-3" style="background-color: #e3f2fd">
+        <div class="card-body">
+            <h5><div class="card-title text-center h4">Attendance</div></h5>
+            <div class="card-text">
+            <table class="table table-hover table-striped">
+                <thead class="h6 text-center">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Start Time</th>
+                    <th scope="col">End Time</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for attendant in attendance %}
+                        <tr class="fw-normal text-center">
+                            <th scope="row">{{ attendant.user.first_name }} {{ attendant.user.last_name }}</th>
+                            <td>{{ attendant.startTime }}</td>
+                            <td>{{ attendant.endTime }}</td>
+                            <td>{{ attendant.position }}</td>
+                            <td>{{ attendant.location }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
             </div>
         </div>
     </div>
-
 {% endblock %}
