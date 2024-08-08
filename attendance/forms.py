@@ -10,6 +10,7 @@ class AttendanceForm(forms.ModelForm):
             ("XN", "XN"),
             ("XD", "XD"),
             ("XZ", "XZ"),
+            ("T1M", "T1M"),
         )
         model = Attendance
         fields = ('startTime', 'endTime', 'position', 'location')

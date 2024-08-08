@@ -32,12 +32,12 @@ def attendance(request):
     minute = timezone.now().minute
     handle = "Not Set"
     
-    if datetime(year, month, day, hour, minute) > datetime(year, month, day , 7, 0) and datetime(year, month, day, hour, minute) < datetime(year, month, day, 15, 0):
+    if datetime(year, month, day, hour, minute) > datetime(year, month, day , 7, 0) and datetime(year, month, day, hour, minute) < datetime(year, month, day, 14, 59):
         stTme = datetime(year, month, day , 7, 0)
-        enTme = datetime(year, month, day, 15, 0)
+        enTme = datetime(year, month, day, 14, 59)
         handle = "Morning Shift"
     
-    if datetime(year, month, day, hour, minute) > datetime(year, month, day , 15, 0) and datetime(year, month, day, hour, minute) < datetime(year, month, day, 23, 0):
+    if datetime(year, month, day, hour, minute) > datetime(year, month, day , 15, 0) and datetime(year, month, day, hour, minute) < datetime(year, month, day, 22, 59):
         stTme = datetime(year, month, day , 15, 0)
         enTme = datetime(year, month, day, 23, 0)
         handle = "Afternoon Shift"
@@ -47,12 +47,12 @@ def attendance(request):
         enTme = datetime(year, month, day+1, 7, 0)
         handle = "Night Shift before 12"
         
-    if datetime(year, month, day, hour, minute) > datetime(year, month, day , 0, 0) and datetime(year, month, day, hour, minute) < datetime(year, month, day, 7, 0):
+    if datetime(year, month, day, hour, minute) > datetime(year, month, day , 0, 0) and datetime(year, month, day, hour, minute) < datetime(year, month, day, 6, 59):
         stTme = datetime(year, month, day-1 , 23, 0)
         enTme = datetime(year, month, day, 7, 0)
         handle = "Night Shift after 12"
     
-    attendance = Attendance.objects.filter(startTime__gte=stTme, startTime__lte=enTme)
+    attendance = Attendance.objects.filter(startTime__gte=stTme) #, startTime__lte=enTme)
     print(year, month, day, hour, minute)
     print(datetime(2024, 8, 5, 15, 5,))
     print(handle)
