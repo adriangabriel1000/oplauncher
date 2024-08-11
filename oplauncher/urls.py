@@ -20,12 +20,19 @@ from django.urls import path, include
 from launcher import views
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework.routers import DefaultRouter
+from attendance.views import AttendanceViewSet
+
+router = DefaultRouter()
+router.register('attendances', AttendanceViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('launcher.urls')),
     path('user/', include('user.urls')),
     path('attendance/', include('attendance.urls')),
+    #path('api/', include((router.urls, 'attendance'), namespace='attendanceapi')),
+    path('api/', include(router.urls)),
 ] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

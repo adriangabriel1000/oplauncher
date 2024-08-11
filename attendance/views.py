@@ -4,7 +4,13 @@ from .models import Attendance
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.utils import timezone
+from rest_framework import viewsets
+from .serializers import AttendanceSerializer
 
+class AttendanceViewSet(viewsets.ModelViewSet):
+    queryset = Attendance.objects.all()
+    serializer_class = AttendanceSerializer
+    
 
 # Create your views here.
 @login_required
